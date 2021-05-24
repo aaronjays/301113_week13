@@ -22,6 +22,7 @@ library("ggplot2")
 g <- ggplot(data = dJD) +
   geom_line(mapping = aes(x = t, y = H), colour = "red") +
   scale_x_date(date_labels = "%d %b %Y") +
+  scale_y_log10() +
   labs(x = "Date", y = "Number of Hospital Beds Needed",
        title = "Hospital beds needed in the Sydney area.")
 print(g)
