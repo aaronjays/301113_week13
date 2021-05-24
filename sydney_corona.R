@@ -24,6 +24,7 @@ g <- ggplot(data = dJD) +
   geom_line(mapping = aes(x = t, y = C, colour = "Critical")) +
   geom_line(mapping = aes(x = t, y = D, colour = "Dead")) +
   scale_x_date(date_labels = "%d %b %Y") +
+  scale_y_sqrt() +
   labs(x = "Date", y = "Number of cases",
        title = "Effect of COVID-19 in the Sydney area.",
        colour = "State")
