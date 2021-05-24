@@ -20,8 +20,10 @@ dJD <- d %>% filter((t >= "2020-07-01") & (t <= "2020-12-31"))
 
 library("ggplot2")
 g <- ggplot(data = dJD) +
-  geom_line(mapping = aes(x = t, y = H)) +
-  scale_x_date(date_labels = "%d %b %Y")
+  geom_line(mapping = aes(x = t, y = H), colour = "red") +
+  scale_x_date(date_labels = "%d %b %Y") +
+  labs(x = "Date", y = "Number of Hospital Beds Needed",
+       title = "Hospital beds needed in the Sydney area.")
 print(g)
 
 # 1. Adjust the script so that the each month is shown in the x axis.
