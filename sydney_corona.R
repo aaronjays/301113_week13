@@ -20,11 +20,14 @@ dJD <- d %>% filter((t >= "2020-07-01") & (t <= "2020-12-31"))
 
 library("ggplot2")
 g <- ggplot(data = dJD) +
-  geom_line(mapping = aes(x = t, y = H), colour = "red") +
+  geom_line(mapping = aes(x = t, y = H, colour = "Hospitalised")) +
+  geom_line(mapping = aes(x = t, y = C, colour = "Critical")) +
+  geom_line(mapping = aes(x = t, y = D, colour = "Dead")) +
   scale_x_date(date_labels = "%d %b %Y") +
-  scale_y_log10() +
-  labs(x = "Date", y = "Number of Hospital Beds Needed",
-       title = "Hospital beds needed in the Sydney area.")
+  scale_y_sqrt() +
+  labs(x = "Date", y = "Number of cases",
+       title = "Effect of COVID-19 in the Sydney area.",
+       colour = "State")
 print(g)
 
 # 1. Adjust the script so that the each month is shown in the x axis.
@@ -34,3 +37,9 @@ print(g)
 # correctly.
 # 4.  Commit the new changes (make sure to be providing informative
 # log messages).
+
+# 1. Create a branch in the repository and change to that branch.
+# 2.  Edit the script to add the number of critical and dead to the
+# plotand commit the changes.
+# 3.  Change the y scale to be a square root scale. Make sure the plot
+# looks presentable and then commit the changes.
